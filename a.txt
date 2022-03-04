@@ -1,0 +1,24 @@
+replace#1href=++++
+replace#2"++++
+replace#3false++++
+replace#4false++++
+replace#5false++++
+replace#6false++++
+replace#7/++++
+replace#8false++++
+replace#9"++++
+replace#10+++++
+
+
+    <script
+replace#1src=++++
+replace#2"++++
+replace#3false++++
+replace#4false++++
+replace#5false++++
+replace#6false++++
+replace#7/++++
+replace#8false++++
+replace#9"++++
+replace#10>++++
+</script>
