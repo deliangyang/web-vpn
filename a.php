@@ -101,11 +101,75 @@ window.location = '/idnex.html
 <script type="text/javascript">
     var a = "/asdf/asdf?bb-cc&d=123";
     var b = '/asdf/asdf?bb-cc&d=123';
-    let r={os:function(){return/windows/.test(n)?"windows":/linux/.test(n)?"linux":/iphone|ipod|ipad|ios/.test(n)?"ios":/mac/.test(n)?"mac":void 0}()
+    let r = {
+        os: function () {
+            return /windows/.test(n) ? "windows" : /linux/.test(n) ? "linux" : /iphone|ipod|ipad|ios/.test(n) ? "ios" : /mac/.test(n) ? "mac" : void 0
+        }();
+    }
 
     var dic = {
         "Access": "启用",
     };
+
+    var options = {}
+    // 1
+    let a = [
+        options.path ? '; path=' + options.path : '',
+    ]
+    // 2
+    a.push(dic['Access']);
+
+    // 3
+    function changeUrlArg(url, arg, val) {
+    }
+
+    // 4
+    a.push(G);
+
+    // 6
+    a.src = dic
+
+    // 7
+    wf.http.post({
+        url: wf.apiServer() + '/sns/notify_count',
+    })
+
+    // 2-4
+    var path="https://advert.wanfangdata.com.cn/";
+    $.ajax({
+        url: path + "/xxxx",
+    })
+
+    function xxx() {
+        return '<a href="' + wf.wfPubServer(0) + '/u/' + '">a</a>'
+    }
+
+    function bbb() {
+        let m = [3]
+        return {
+            href: m[0]
+        }
+    }
+
+    a.attr("src", i)
+    let b {
+        href:function(e) {
+            return 1
+        }
+    }
+    let addd='href="' +n[i] + '"'
+    a.get(this)
+
 </script>
+
+<style>
+    /** 5 */
+    a {
+        background-image: url(../../images/banner11.jpg);
+    }
+
+    /** 8 */
+    @import url("paypage.css");
+</style>
 </body>
 </html>

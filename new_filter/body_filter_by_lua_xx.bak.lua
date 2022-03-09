@@ -71,7 +71,10 @@ end
 
 -- 替换规则
 function replace (args)
-    -- ngx.log(ngx.ERR, current_uri .. '=>' .. args[1] .. '#------#' .. args[2] .. '#------#' .. args[3]);
+    ngx.log(ngx.ERR, current_uri .. '=>' .. args[1] .. '#------#' .. args[2] .. '#------#' .. args[3]);
+    if args[2] ~= "'" and args[2] ~= '"' then
+        return args[1] .. args[2] .. args[3]
+    end
     local prefix_l2 = string.sub(args[3], 0, 2)
     local prefix_l1 = string.sub(args[3], 0, 1)
     local l = #args[3]
@@ -110,6 +113,10 @@ function replace (args)
         else
             return args[1] .. args[2] .. args[3]
         end
+    end
+
+    if prefix_l1 ~= '/' then
+        return args[1] .. args[2] .. scheme .. '://' .. vpn_host .. '/' .. proxy_sip .. current_uri .. '/' .. args[3]
     end
 
     return args[1] .. args[2] .. scheme .. '://' .. vpn_host .. '/' .. proxy_sip .. '/' .. args[3]

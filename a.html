@@ -35,8 +35,8 @@ href="http://192.168.73.65/s/www.duxiu.com/index/
 src="http://192.168.73.65/s/www.duxiu.com/index/
 href='http://192.168.73.65/s/www.duxiu.com/detail/
 src='http://192.168.73.65/s/www.duxiu.com/xximages/
-href=http://192.168.73.65/s/www.duxiu.com/
-src=http://192.168.73.65/s/www.duxiu.com/
+href=/
+src=/
 href:"http://192.168.73.65/s/www.duxiu.com/
 src="http://192.168.73.65/s/原网站的域名
 href="http://192.168.73.65/s/原网站的域名
@@ -46,11 +46,11 @@ path="http://192.168.73.65/s/www.duxiu.com/
 path='http://192.168.73.65/s/www.duxiu.com/
 action="http://192.168.73.65/s/www.duxiu.com/原网站的域名
 action='http://192.168.73.65/s/www.duxiu.com/原网站的域名
-background: url(http://192.168.73.65/s/www.duxiu.com/images
-background: url(http://192.168.73.65/s/www.duxiu.com/../../images
+background: url(../images
+background: url(../../../images
 import ('http://192.168.73.65/s/www.duxiu.com/templates
 import ("http://192.168.73.65/s/www.duxiu.com/templates
-import (http://192.168.73.65/s/www.duxiu.com/templates
+import (/templates
 href="http://192.168.73.65/s/www.duxiu.com/
 href='http://192.168.73.65/s/www.duxiu.com/
 href='http://192.168.73.65/s/www.duxiu.com/
@@ -63,21 +63,21 @@ href=\"http://192.168.73.65/s/www.duxiu.com/
 src=\"http://192.168.73.65/s/images.koolearn.com/
 href=\'http://192.168.73.65/s/www.duxiu.com/
 src=\'http://192.168.73.65/s/
-url(http://192.168.73.65/s/www.duxiu.com/
+url(/
 url('http://192.168.73.65/s/www.duxiu.com/../../
 url("http://192.168.73.65/s/www.duxiu.com/nimages/logo.png")
 url('http://192.168.73.65/s/www.duxiu.com/nimages/logo.png')
-url(http://192.168.73.65/s/www.duxiu.com/../images/news_images/
+url(../../images/news_images/
 url('http://192.168.73.65/s/www.duxiu.com/Content
 post("http://192.168.73.65/s/www.duxiu.com/
 get("http://192.168.73.65/s/www.duxiu.com/
 post('http://192.168.73.65/s/www.duxiu.com/
 get('http://192.168.73.65/s/www.duxiu.com/
-post(http://192.168.73.65/s/www.duxiu.com/
-get(http://192.168.73.65/s/www.duxiu.com/
+post(/
+get(/
 url:"http://192.168.73.65/s/www.duxiu.com/
 url:'http://192.168.73.65/s/www.duxiu.com/
-url: 'http://192.168.73.65/s/www.duxiu.com/Viewer
+url: '../Viewer
 src","http://192.168.73.65/s/www.duxiu.com/
 link":"http:\/\/192.168.73.65/s/www.duxiu.com\/
 src :'http://192.168.73.65/s/www.duxiu.com/img
@@ -85,15 +85,15 @@ src :"http://192.168.73.65/s/www.duxiu.com/
 src=\"http://192.168.73.65/s/www.duxiu.com/images
 url":"http:\/\/192.168.73.65/s/www.duxiu.com\/terms-conditions
 <img src=\"http://192.168.73.65/s/www.duxiu.com/images
-     img', 'http://192.168.73.65/s/www.duxiu.com/
+     img', '/
 window.open('http://192.168.73.65/s/www.duxiu.com/xx
 window.open("http://192.168.73.65/s/www.duxiu.com/xx
 push('http://192.168.73.65/s/www.duxiu.com/
 path:"http://192.168.73.65/s/www.duxiu.com/
 Path":"http://192.168.73.65/s/www.duxiu.com/
 url,'http://192.168.73.65/s/www.duxiu.com/api
-url, 'http://192.168.73.65/s/www.duxiu.com/api
-href, 'http://192.168.73.65/s/www.duxiu.com/api
+url, '/api
+href, '/api
 href","http://192.168.73.65/s/www.duxiu.com/
 window.location = "http://192.168.73.65/s/www.duxiu.com/idnex.html
 window.location = 'http://192.168.73.65/s/www.duxiu.com/idnex.html
@@ -101,11 +101,75 @@ window.location = 'http://192.168.73.65/s/www.duxiu.com/idnex.html
 <script type="text/javascript">
     var a = "/asdf/asdf?bb-cc&d=123";
     var b = '/asdf/asdf?bb-cc&d=123';
-    let r={os:function(){return/windows/.test(n)?"windows":/linux/.test(n)?"linux":/iphone|ipod|ipad|ios/.test(n)?"ios":/mac/.test(n)?"mac":void 0}()
+    let r = {
+        os: function () {
+            return /windows/.test(n) ? "windows" : /linux/.test(n) ? "linux" : /iphone|ipod|ipad|ios/.test(n) ? "ios" : /mac/.test(n) ? "mac" : void 0
+        }();
+    }
 
     var dic = {
         "Access": "启用",
     };
+
+    var options = {}
+    // 1
+    let a = [
+        options.path ? '; path=' + options.path : '',
+    ]
+    // 2
+    a.push(dic['Access']);
+
+    // 3
+    function changeUrlArg(url, arg, val) {
+    }
+
+    // 4
+    a.push(G);
+
+    // 6
+    a.src = dic
+
+    // 7
+    wf.http.post({
+        url: wf.apiServer() + '/sns/notify_count',
+    })
+
+    // 2-4
+    var path="http://192.168.73.65/s/advert.wanfangdata.com.cn/";
+    $.ajax({
+        url: path + "/xxxx",
+    })
+
+    function xxx() {
+        return '<a href="' + wf.wfPubServer(0) + '/u/' + '">a</a>'
+    }
+
+    function bbb() {
+        let m = [3]
+        return {
+            href: m[0]
+        }
+    }
+
+    a.attr("src", i)
+    let b {
+        href:function(e) {
+            return 1
+        }
+    }
+    let addd='href="' +n[i] + '"'
+    a.get(this)
+
 </script>
+
+<style>
+    /** 5 */
+    a {
+        background-image: url(../../images/banner11.jpg);
+    }
+
+    /** 8 */
+    @import url("http://192.168.73.65/s/www.duxiu.com/paypage.css");
+</style>
 </body>
 </html>

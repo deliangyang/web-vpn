@@ -8,6 +8,10 @@
     <title>Document</title>
     
 </head>
+
+<style>
+    @import url("ccc.css");
+</style>
 <body>
 <a href="../../a.php"></a>
 
