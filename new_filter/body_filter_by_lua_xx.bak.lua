@@ -21,10 +21,11 @@ rule_prefix = {
     "href\",",
     "href,",
     [[img',\s*?]],
-    "window.location = "
+    "window.location = ",
+    'https?'
 }
 
-local regexp_url = [[(]] .. table.concat(rule_prefix, "|") .. [[)([\"'\s]*?)([^"'\s\r\n\t,;<>)]+)]]
+local regexp_url = [[(]] .. table.concat(rule_prefix, "|") .. [[)]] .. [[([\"'\s]*?)]] .. [[([^"'\s\r\n\t,;<>)]+)]]
 
 local chunk, eof = ngx.arg[1], ngx.arg[2]
 local buffered = ngx.ctx.buffered
@@ -71,19 +72,24 @@ end
 
 -- 替换规则
 function replace (args)
-    ngx.log(ngx.ERR, current_uri .. '=>' .. args[1] .. '#------#' .. args[2] .. '#------#' .. args[3]);
+    ngx.log(ngx.ERR, current_uri .. '=>   ' .. args[1] .. '#------#' .. args[2] .. '#------#' .. args[3]);
+    local prefix_l2 = string.sub(args[3], 0, 2)
+    if args[2] == '' and (args[1] == 'https' or args[1] == 'http') and prefix_l2 == ':/' then
+        return scheme .. '://' .. vpn_host .. '/' .. string.gsub(args[3], '://', '', 3)
+    end
+
     if args[2] ~= "'" and args[2] ~= '"' then
         return args[1] .. args[2] .. args[3]
     end
-    local prefix_l2 = string.sub(args[3], 0, 2)
     local prefix_l1 = string.sub(args[3], 0, 1)
     local l = #args[3]
+
     if l == 0 then
         return args[1] .. args[2] .. args[3]
     elseif l == 1 and prefix_l1 == '"' then
         return ""
     elseif prefix_l2 == '..' then
-        return args[1] .. args[2] .. scheme .. '://' .. vpn_host .. '/' .. proxy_sip .. current_uri .. string.sub(args[3], 3)
+        return args[1] .. args[2] .. args[3]
     elseif prefix_l2 == './' then
         return args[1] .. args[2] .. scheme .. '://' .. vpn_host .. '/' .. proxy_sip .. current_uri .. string.sub(args[3], 2)
     elseif prefix_l2 == '/' then
@@ -94,7 +100,7 @@ function replace (args)
         return args[1] .. args[2] .. scheme .. '://' .. vpn_host .. '/' .. string.sub(args[3], 3)
     elseif prefix_l2 == "\\/" then
         return args[1] .. args[2] .. scheme .. ':\\/\\/' .. vpn_host .. '/' .. proxy_sip .. '\\/' .. string.sub(args[3], 3)
-    elseif prefix_l1 == '#' then
+    elseif prefix_l1 == '#' or prefix_l1 == '+' then
         return args[1] .. args[2] .. args[3]
     elseif prefix_l1 == '/' then
         return args[1] .. args[2] .. scheme .. '://' .. vpn_host .. '/' .. proxy_sip .. '/' .. string.sub(args[3], 2)

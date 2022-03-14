@@ -170,6 +170,53 @@ window.location = '/idnex.html
 
     /** 8 */
     @import url("paypage.css");
+
+    .header .link-home {
+        float: left;
+        width: 140px;
+        height: 45px;
+        margin-top: 13px;
+        background: url("../nimages/logo.png") no-repeat top center;
+    }
+
+    .search-box {
+        width: 100%;
+        min-height: 76px;
+        border-bottom: 1px solid #e4e4e4;
+        background: url("../../images/gb/banner-bg2.jpg") repeat-x center top #fff;
+    }
+
+    @import url("laypage.css");
+    article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block }
+    audio, canvas, video { display: inline-block; *display:inline;
+        *zoom:1}
 </style>
+<script>
+    a("nmycnki").after('<a id="subscribe" class="ecp_tn-tab" href='+APPPATH+"/rss><i>")
+
+
+    url("+APPPATH+"/Content/images/gb/waitingsmall.gif)
+
+    width,L.height,L)})},clip:function(L){return this.attr("clip-path",L?"url("+this.renderer.url+"#"+L.id+")":an)},cri;
+
+    var A = $(B.target);
+    var C = GetQueryStringByName(window.location.href, "version");
+    if (C && C.toLowerCase() == "kns7") {
+        e.search(A);
+        e.searchResult(A);
+    }
+
+    a(w)+(dz?";expires="+ds.toGMTString():"")+";path="+(dy||"/")+(dt?";domain="+
+    </script>
+
+    <li id="scef" val="scef" onclick="LinkDb(this,'https://r.cnki.net//KNS/brief/result.aspx?dbprefix=scef')"><a href="javascript:void(0)">企业标准</a></li>
+
+
+    Var recSysAPIUrl = $("#RecSysAPI").val();;// ////recsys.cnki.net/RCDServiceBeta/api/RecSysOpenApi/
+    if (!!recSysAPIUrl == false)
+        recSysAPIUrl = "https://recsys.cnki.net/RCDService";
+    else {
+        recSysAPIUrl = recSysAPIUrl.replace("/api/RecSysOpenApi/", "");
+    }
 </body>
 </html>
